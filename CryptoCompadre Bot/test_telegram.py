@@ -37,6 +37,12 @@ class CryptoCompadre_Bot:
         self.conn = sqlite3.connect('CryptoCompadre.sql')
         self.cursor = self.conn.cursor()
 
+class Usuario:
+    pass
+
+class Graficos:
+    pass
+
 if __name__ == '__main__':
     bot = CryptoCompadre_Bot(TELEGRAM_TOKEN)
     bot.run()
