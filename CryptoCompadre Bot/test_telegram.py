@@ -8,11 +8,16 @@ def Responder_a_Comandos(message):
     # El bot le da la bienvenida al usuario
     bot.reply_to(message, "Bienvenido a CryptoCompadre, ¿Cómo puedo ayudarte?")
 
-#if
+
 @bot.message_handler(content_types=["text"])
 def responder_mensajes_texto(message):
-    bot.send_message(message.chat.id, "Recuerda, compadre, solo me comunico con comandos,"
-                                       "así que no entiendo lo que dices. ¡Intenta con un comando!")
+    if message.text.startswith("/"):
+        bot.send_message(message.chat.id, "Comando incorrecto, compadre ")
+
+    else:
+        bot.send_message(message.chat.id, "Recuerda, compadre, solo me comunico con comandos,"
+                                       " así que no entiendo lo que dices. ¡Intenta con un comando!")
+
 
 
 
