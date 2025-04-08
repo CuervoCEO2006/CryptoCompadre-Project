@@ -12,6 +12,18 @@ class CryptoCompadre_Bot:
         def responder_a_comandos(message):
             self.bienvenida_a_usuario(message)
 
+        @self.bot.message_handler(content_types=["text"])
+        def responder_mensajes_texto(message):
+            self.bot_mensajes_texto(message)
+
+    def bienvida_a_usuario(self, message):
+        self.bot.reply_to(message,"Bienvenido al Bot CriptoCompadre, ¿Cómo puedo ayudarte?")
+
+
+
+
+
+
 
 
 
