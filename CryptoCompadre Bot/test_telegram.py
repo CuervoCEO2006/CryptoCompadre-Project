@@ -8,24 +8,26 @@ class CryptoCompadre_Bot:
         self.bot = telebot.TeleBot(TELEGRAM_TOKEN)
         self.responder_comando()
 
+    def bienvenida_a_usuario(self, message):
+        self.bot.reply_to(message,"Bienvenido al Bot CriptoCompadre, ¿Cómo puedo ayudarte?")
+
     def responder_comando(self):
         @self.bot.message_handler(commands=["start", "inicio"])
         def responder_a_comandos(message):
             self.bienvenida_a_usuario(message)
 
+    def bot_mensajes_texto(self, message):
+        if message.text.startswith("/"):
+                self.bot.send_message(message.chat.id, "Comando incorrecto mi compa ")
+
+        else:
+            self.bot.send_message(message.chat.id, "Recuerda, compadre, solo me comunico con comandos,"
+                                                    " así que no entiendo lo que dices. ¡Intenta con un comando!")
+
         @self.bot.message_handler(content_types=["text"])
         def responder_mensajes_texto(message):
             self.bot_mensajes_texto(message)
 
-    def bienvenida_a_usuario(self, message):
-        self.bot.reply_to(message,"Bienvenido al Bot CriptoCompadre, ¿Cómo puedo ayudarte?")
-
-    def bot_mensajes_texto(self, message):
-        if message.text.startswith("/"):
-            self.bot.send_message(message.chat.id,"Comando incorrecto mi compa ")
-        else:
-            self.bot.send_message(message.chat.id, "Recuerda, compadre, solo me comunico con comandos,"
-                                                    " así que no entiendo lo que dices. ¡Intenta con un comando!"
 
     def run(self):
         print("iniciando el bot")
