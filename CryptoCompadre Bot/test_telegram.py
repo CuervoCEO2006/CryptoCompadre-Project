@@ -16,6 +16,10 @@ class CryptoCompadre_Bot:
         def responder_a_comandos(message):
             self.bienvenida_a_usuario(message)
 
+        @self.bot.message_handler(content_types=["text"])
+        def responder_mensajes_texto(message):
+            self.bot_mensajes_texto(message)
+
     def bot_mensajes_texto(self, message):
         if message.text.startswith("/"):
                 self.bot.send_message(message.chat.id, "Comando incorrecto mi compa ")
@@ -23,11 +27,6 @@ class CryptoCompadre_Bot:
         else:
             self.bot.send_message(message.chat.id, "Recuerda, compadre, solo me comunico con comandos,"
                                                     " así que no entiendo lo que dices. ¡Intenta con un comando!")
-
-        @self.bot.message_handler(content_types=["text"])
-        def responder_mensajes_texto(message):
-            self.bot_mensajes_texto(message)
-
 
     def run(self):
         print("iniciando el bot")
