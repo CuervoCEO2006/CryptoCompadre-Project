@@ -1,0 +1,37 @@
+from config import *  # Importamos el token
+import telebot  # Para manejar la API de Telegram
+
+class CryptoCompadreBot:
+    def __init__(self, token):
+        self.bot = telebot.TeleBot(token)
+        self.register_handlers()
+
+    def register_handlers(self):
+        @self.bot.message_handler(commands=["start", "inicio"])  # Responde al comando start
+        def responder_a_comandos(message):
+            self.welcome_user(message)
+
+        @self.bot.message_handler(content_types=["text"])
+        def responder_mensajes_texto(message):
+            self.handle_text_message(message)
+
+    def welcome_user(self, message):
+        # El bot le da la bienvenida al usuario
+        self.bot.reply_to(message, "Bienvenido a CryptoCompadre, ¿Cómo puedo ayudarte?")
+
+    def handle_text_message(self, message):
+        if message.text.startswith("/"):
+            self.bot.send_message(message.chat.id, "Comando incorrecto mi compa ")
+        else:
+            self.bot.send_message(message.chat.id, "Recuerda, compadre, solo me comunico con comandos,"
+                                                    " así que no entiendo lo que dices. ¡Intenta con un comando!")
+
+    def run(self):
+        print('Iniciando el bot')
+        self.bot.infinity_polling()
+        print('Fin')
+
+
+if __name__ == '__main__':
+    bot = CryptoCompadreBot(TELEGRAM_TOKEN)
+    bot.run()
