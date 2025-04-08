@@ -1,6 +1,7 @@
 from config import * #importamos el token
 import telebot #para manejar la API de Telegram
 
+
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 
 @bot.message_handler(commands=["start", "inicio"])        #responde al comando start
@@ -12,7 +13,7 @@ def Responder_a_Comandos(message):
 @bot.message_handler(content_types=["text"])
 def responder_mensajes_texto(message):
     if message.text.startswith("/"):
-        bot.send_message(message.chat.id, "Comando incorrecto, compadre ")
+        bot.send_message(message.chat.id, "Comando incorrecto mi compa ")
 
     else:
         bot.send_message(message.chat.id, "Recuerda, compadre, solo me comunico con comandos,"
