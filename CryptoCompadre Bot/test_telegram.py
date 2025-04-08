@@ -43,6 +43,35 @@ if __name__ == '__main__':
 
 
 
+class Usuario:
+    def __init__(self, id_usuario: int, nombre_usuario: str, clave_usuario: str, historial_chat: list):
+        self.id_usuario = id_usuario
+        self.nombre_usuario = nombre_usuario
+        self.clave_usuario = clave_usuario
+
+    def iniciar_sesion(self, nombre_usuario, clave_usuario):
+        pass
+
+    def cerrar_sesion(self):
+        pass
 
 
+class Noticiero:
 
+    def obtener_noticias(self):
+        pass
+
+class Activo:
+    def __init__(self, symbol: str, nombre: str, tipo: str):
+        self.symbol = symbol
+        self.nombre = nombre
+        self.tipo = tipo
+        self.precio_actual = 0.0
+        self.datos_historicos = []
+
+class GeneradorGraficos:
+    def generar_grafico_precio(self, activo):
+        pass
+
+    def generar_grafico_comparativo(self, lista_activos):
+        pass
