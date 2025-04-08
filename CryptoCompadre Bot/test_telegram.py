@@ -27,9 +27,14 @@ class CryptoCompadre_Bot:
                                                     " así que no entiendo lo que dices. ¡Intenta con un comando!")
 
 
+    def run(self):
+        print("iniciando el bot")
+        self.bot.infinity_polling()
+        print("fin")
 
-
-
+if __name__ == '__main__':
+    bot = CryptoCompadre_Bot(TELEGRAM_TOKEN)
+    bot.run()
 
 
 
